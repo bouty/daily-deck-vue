@@ -11,6 +11,13 @@ async function getCards() {
   <div class="about">
     <h1>This is an about page</h1>
     <button @click="getCards">Get cards</button>
+
+    <h2>Day Cards</h2>
+    <ul>
+      <li v-for="card in deckStore.dayCards">
+        {{ card.caption }}
+      </li>
+    </ul>
   </div>
 </template>
 

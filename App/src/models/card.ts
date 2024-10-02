@@ -1,10 +1,10 @@
 class Card {
-    caption: string;
-    description: string;
+    abbreviation: string;
+    title: string;
 
-    constructor(caption:string, description:string) {
-        this.caption = caption;
-        this.description = description;
+    constructor(abbreviation: string, title:string) {
+        this.abbreviation = abbreviation;
+        this.title = title;
     }
 }
 

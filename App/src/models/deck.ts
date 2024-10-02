@@ -1,11 +1,11 @@
 import type {Card} from "./card";
 
 class Deck {
-    caption:string;
+    title:string;
     cards:Card[];
 
-    constructor(caption:string, cards:Card[] = []) {
-        this.caption = caption;
+    constructor(title:string, cards:Card[] = []) {
+        this.title = title;
         this.cards = cards;
     }
 }

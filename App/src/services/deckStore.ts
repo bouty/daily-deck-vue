@@ -3,27 +3,47 @@ import { Deck } from '../models/deck';
 import { Card } from '../models/card';
 
 const introDeck:Deck = new Deck(
-    "Try Me",
+    "Try me",
     [
-        new Card("10 min exercise", "Get at least 10 minutes of continuous exercise"),
-        new Card("10 min exercise", "Get at least 10 minutes of continuous exercise"),
-        new Card("10 min exercise", "Get at least 10 minutes of continuous exercise"),
-        new Card("2 hr fast", "Fast for 2 continuous hours"),
-        new Card("2 hr phone break", "Phone break for 2 continuous hours"),
+        new Card("10m E","10 Minute Exercise"),
+        new Card("10m E", "10 Minute Exercise"),
+        new Card("10m E", "10 Minute Exercise"),
+
+        new Card("2h F", "2 Hour Fast",),
+        
+        new Card("5m M", "5 Minute Meditation",),
+        new Card("5m M", "5 Minute Meditation",),
+
+        new Card("2h SB", "2 Hour Screen Break",),
+
+        new Card("&#189; Caf", "Half Normal Caffeine",),
     ]
 );
 
 const warriorDeck:Deck = new Deck(
-    "Bring out the Warrior",
+    "Bring out the warrior",
     [
-        new Card("10 min exercise", "10 minutes of continuous exercise"),
-        new Card("10 min exercise", "10 minutes of continuous exercise"),
-        new Card("10 min exercise", "10 minutes of continuous exercise"),
-        new Card("10 min exercise", "10 minutes of continuous exercise"),
-        new Card("2 hr fast", "Fast for 2 continuous hours"),
-        new Card("2 hr fast", "Fast for 2 continuous hours"),
-        new Card("2 hr phone break", "Phone break for 2 continuous hours"),
-        new Card("Bonus Push-ups", "Extra set of push ups"),
+        new Card("10m E","10 Minute Exercise"),
+        new Card("10m E", "10 Minute Exercise"),
+        new Card("10m E", "10 Minute Exercise"),
+        new Card("10m E", "10 Minute Exercise"),
+
+        new Card("2h F", "2 Hour Fast",),
+        new Card("2h F", "2 Hour Fast",),
+
+        new Card("5m M", "5 Minute Meditation",),
+        new Card("5m M", "5 Minute Meditation",),
+        
+        new Card("30s C", "30 Second Cold Plunge",),
+        new Card("30s C", "30 Second Cold Plunge",),
+        new Card("30s C", "30 Second Cold Plunge",),
+
+        new Card("2h SB", "2 Hour Screen Break",),
+
+        new Card("&#189; Caf", "Half Normal Caffeine",),
+        new Card("&#189; Caf", "Half Normal Caffeine",),
+
+        new Card("Ex P", "Extra Pushup Set"),
     ]
 );
 

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+import CardItem from './components/CardItem.vue';
+import {deckStore} from "./services/deckStore";
 </script>
 
 <template>
+  <!--
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
 
+    
     <div class="wrapper">
       <HelloWorld msg="You did it!" />
 
@@ -18,6 +20,16 @@ import HelloWorld from './components/HelloWorld.vue'
   </header>
 
   <RouterView />
+-->
+<main>
+  <h3>{{ deckStore.activeDeck.title }}</h3>
+  <div>
+    <CardItem v-for="card in deckStore.activeDeck.cards" :card=card />
+  </div>
+</main>
+
+
+
 </template>
 
 <style scoped>
@@ -33,7 +45,7 @@ header {
 
 nav {
   width: 100%;
-  font-size: 12px;
+  font-size: 1rem;
   text-align: center;
   margin-top: 2rem;
 }
@@ -61,16 +73,6 @@ nav a:first-of-type {
     display: flex;
     place-items: center;
     padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
   }
 
   nav {

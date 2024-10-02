@@ -15,7 +15,7 @@ async function getCards() {
     <h2>Day Cards</h2>
     <ul>
       <li v-for="card in deckStore.dayCards">
-        {{ card.caption }}
+        {{ card.abbreviation }}
       </li>
     </ul>
   </div>

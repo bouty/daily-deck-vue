@@ -69,7 +69,6 @@ export const deckStore = reactive({
     activeDeck: warriorDeck,
     dayCards: [] as Card[],
     async determineCards() {
-        console.log('determine cards');
         this.dayCards = await determineCards(this.activeDeck);
     }
 })

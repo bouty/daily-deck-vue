@@ -1,53 +1,33 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
-import CardItem from './components/CardItem.vue';
-import {deckStore} from "./services/deckStore";
 </script>
 
 <template>
-  <!--
   <header>
-
-    
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
+    <h1>Daily Deck</h1>
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/configure">Configure</RouterLink>
+    </nav>
   </header>
 
   <RouterView />
--->
-<main>
-  <h3>{{ deckStore.activeDeck.title }}</h3>
-  <div>
-    <CardItem v-for="card in deckStore.activeDeck.cards" :card=card />
-  </div>
-</main>
-
-
-
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+h1 {
+  margin-bottom: .5rem;
+  text-align: center;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+header {
+  margin-bottom: 2rem;
 }
 
 nav {
   width: 100%;
   font-size: 1rem;
   text-align: center;
-  margin-top: 2rem;
 }
 
 nav a.router-link-exact-active {
@@ -69,19 +49,18 @@ nav a:first-of-type {
 }
 
 @media (min-width: 1024px) {
+  h1 {
+    text-align: left;
+  }
+
   header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
+    margin-bottom: 1rem;
   }
 
   nav {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
   }
 }
 </style>

@@ -1,6 +1,11 @@
 import { reactive } from 'vue';
 import { Deck } from '../models/deck';
 import { Card } from '../models/card';
+import { StorageService } from './storageService';
+import { CardStorage } from '@/models/cardStorage';
+
+const storageService:StorageService = new StorageService();
+const activeDayCards:Card[] = initFromStorage();
 
 const introDeck:Deck = new Deck(
     "Try me",
@@ -47,7 +52,37 @@ const warriorDeck:Deck = new Deck(
     ]
 );
 
-async function determineCards(activeDeck:Deck): Promise<Card[]> {
+const localStoreCardKey:string = "dayCards";
+function initFromStorage(): Card[] {
+    const todayStamp = getDayTimeStamp();
+    const cardStorage = storageService.getCards();
+
+    if (cardStorage !== undefined
+        && cardStorage.timestamp === todayStamp) {
+        return cardStorage.cards;
+    }
+
+    storageService.deleteCards();
+    return [];
+}
+
+function getDayTimeStamp():string {
+    const dayMilliseconds = 1000*60*60*24;
+    const timeNow = (new Date()).getTime();
+
+    const remaining = timeNow % dayMilliseconds;
+    return (timeNow - remaining).toString();
+}
+
+function storeCards(cards:Card[]): void {
+    const cardStorage = new CardStorage();
+    cardStorage.timestamp = getDayTimeStamp();
+    cardStorage.cards = cards;
+
+    storageService.saveCards(cardStorage);
+}
+
+async function generateCards(activeDeck:Deck): Promise<Card[]> {
     const trueFlag = '1';
     const url = `https://www.random.org/integers/?num=${activeDeck.cards.length}&min=0&max=1&col=1&base=2&format=plain&rnd=new`;
 
@@ -67,8 +102,9 @@ async function determineCards(activeDeck:Deck): Promise<Card[]> {
 
 export const deckStore = reactive({
     activeDeck: warriorDeck,
-    dayCards: [] as Card[],
-    async determineCards() {
-        this.dayCards = await determineCards(this.activeDeck);
+    dayCards: activeDayCards,
+    async generateCards() {
+        this.dayCards = await generateCards(this.activeDeck);
+        storeCards(this.dayCards);
     }
 })

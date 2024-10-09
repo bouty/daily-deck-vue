@@ -3,7 +3,7 @@ import CardItem from '../components/CardItem.vue';
 import {deckStore} from "../services/deckStore";
 
 async function getCards() {
-  await deckStore.determineCards();
+  await deckStore.generateCards();
 }
 </script>
 
